@@ -11,3 +11,10 @@ Your git content here.
 Commit content here.
 
 ---
+
+### Advanced Workflow
+<!-- halpme: advanced | Advanced git patterns -->
+
+Advanced content here.
+
+---

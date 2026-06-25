@@ -47,3 +47,22 @@ setup() {
   [ "$status" -eq 1 ]
   [[ "$output" == *"no topic files"* ]]
 }
+
+@test "keyword matches annotation slug independently of filename stem" {
+  run zsh "$SCRIPT" commit
+  [ "$status" -eq 0 ]
+  [[ "$output" == *"Making a Commit"* ]]
+  [[ "$output" != *"Git Workflow"* ]]
+}
+
+@test "keyword matches section header text" {
+  run zsh "$SCRIPT" workflow
+  [ "$status" -eq 0 ]
+  [[ "$output" == *"Git Workflow"* ]]
+}
+
+@test "keyword searches across multiple files" {
+  run zsh "$SCRIPT" navigation
+  [ "$status" -eq 0 ]
+  [[ "$output" == *"Shell Navigation"* ]]
+}

@@ -26,6 +26,12 @@ show_toc() {
     return 1
   fi
 
+  if [[ -z "$output" ]]; then
+    echo "halpme: found .md files but none have <!-- halpme: --> annotations" >&2
+    echo "Add '<!-- halpme: keyword | description -->' after a '### Section' header." >&2
+    return 1
+  fi
+
   printf '%b' "$output" | glow -w "$HALPME_WIDTH" -
 }
 
@@ -56,7 +62,7 @@ show_section() {
         next
       }
       /^---/ { if (in_section) { in_section = 0; print; next } }
-      in_section && !/^<!-- / { print }
+      in_section { print }
     ' "$f")
     [[ -n "$section" ]] && content+="$section\n\n"
   done
