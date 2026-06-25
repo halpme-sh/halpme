@@ -1,3 +1,8 @@
+---
+name: halpme
+description: Install halpme and build a personal developer guide from existing dotfiles. Use for first-time setup or to expand the guide after adding new tools or workflows.
+---
+
 # halpme
 
 Install `halpme` and build your personal developer guide from your existing dotfiles.
