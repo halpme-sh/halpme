@@ -1,0 +1,11 @@
+#!/bin/bash
+# Mock: pass-through renderer that ignores all glow flags
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -w|--width) shift 2 ;;
+    --pager) shift ;;
+    -) shift; cat; exit 0 ;;
+    *) cat "$1"; exit 0 ;;
+  esac
+done
+cat
