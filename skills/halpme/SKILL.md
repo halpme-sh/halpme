@@ -19,11 +19,12 @@ Run this when `~/.config/halpme/` does not exist.
 
 2. Download and install the script:
    ```bash
+   mkdir -p ~/bin
    curl -fsSL https://raw.githubusercontent.com/halpme-sh/halpme/main/halpme.zsh -o ~/bin/halpme.zsh
    chmod +x ~/bin/halpme.zsh
    ```
 
-3. Check if `halpme` is already aliased in `~/.zshrc` or `~/.aliases.zsh`. If not, append:
+3. Check if `halpme` is already aliased in `~/.zshrc` or `~/.aliases.zsh`. If not, append to `~/.zshrc`:
    ```bash
    alias halpme="zsh ~/bin/halpme.zsh"
    ```
@@ -58,7 +59,7 @@ Read these files if they exist and note every tool, alias, and workflow you find
 
 ### Phase 2 — Drafting
 
-For each topic found (git, brew, shell, tmux, etc.), write or update a file in `~/.config/halpme/` using this format:
+For each topic found (git, brew, shell, tmux, etc.), write a file in `~/.config/halpme/` using this format:
 
 ```markdown
 ### Section Title
@@ -72,7 +73,7 @@ Content here. Tables for command references. Code blocks for runnable examples.
 Rules:
 - One `.md` file per topic
 - Skip topics with no meaningful config found
-- In update mode: only create files for topics not already in `~/.config/halpme/`
+- In update mode: only create files for topics not already in `~/.config/halpme/`; do not modify existing files
 - Prefer tables and examples over prose
 
 ### Phase 3 — Interview
